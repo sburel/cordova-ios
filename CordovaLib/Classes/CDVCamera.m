@@ -379,12 +379,13 @@ static NSSet* org_apache_cordova_validArrowDirections;
 
 						NSDictionary *controllerMetadata = [info objectForKey:@"UIImagePickerControllerMediaMetadata"];
 						if (controllerMetadata) {
-								self.metadata = [[NSMutableDictionary alloc] init];
+							self.metadata = [[NSMutableDictionary alloc] init];
 					
-								NSMutableDictionary *EXIFDictionary = [[controllerMetadata objectForKey:(NSString *)kCGImagePropertyExifDictionary]mutableCopy];
-								if (EXIFDictionary)	[self.metadata setObject:EXIFDictionary forKey:(NSString *)kCGImagePropertyExifDictionary];
+							NSMutableDictionary *EXIFDictionary = [[controllerMetadata objectForKey:(NSString *)kCGImagePropertyExifDictionary]mutableCopy];
+							if (EXIFDictionary)	[self.metadata setObject:EXIFDictionary forKey:(NSString *)kCGImagePropertyExifDictionary];
 					
-								[[self locationManager] startUpdatingLocation];
+							[[self locationManager] startUpdatingLocation];
+							return;
 						}
 						else {
 								NSURL *url = [info objectForKey:UIImagePickerControllerReferenceURL];
